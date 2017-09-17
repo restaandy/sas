@@ -1,8 +1,19 @@
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/jquery-ui.custom.min.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/datepicker.min.css" />
-<script src="<?php echo base_url(); ?>assets/dist/js/jquery.maskedinput.min.js"></script>
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/select2.min.css" />
 <script src="<?php echo base_url(); ?>assets/dist/js/select2.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/dist/js/date-time/bootstrap-datepicker.min.js"></script>
+<style type="text/css">
+	.select2-drop{
+		border: 1px solid #4492C9;
+	}	
+	.select2-drop-above{
 
+	}
+	.select2{
+		background:#FFF;
+	}
+</style>
 <div class="col-lg-9">
 <div class="widget-box">
 						<div class="widget-header widget-header-blue widget-header-flat">
@@ -73,16 +84,70 @@
 																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="nama">Tanggal Lahir:</label>
 																<div class="col-xs-12 col-sm-9">
 																<div class="input-group col-xs-12 col-sm-6">
-																	<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+																	<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd/mm/yyyy">
 																	<span class="input-group-addon">
 																		<i class="fa fa-calendar bigger-110"></i>
 																	</span>
 																</div>
 															</div>
 															</div>
+															
 															<div class="space-2"></div>
 															<div class="form-group">
-																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">Alamat Email:</label>
+																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="angkatan">Angkatan</label>
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<input type="number" name="angkatan" id="angkatan" class="col-xs-12 col-sm-6">
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="tglmasuk">Tanggal Masuk:</label>
+																<div class="col-xs-12 col-sm-9">
+																	<div class="input-group col-xs-12 col-sm-6">
+																	<input class="form-control date-picker" id="tglmasuk" type="text" data-date-format="dd/mm/yyyy">
+																	<span class="input-group-addon">
+																		<i class="fa fa-calendar bigger-110"></i>
+																	</span>
+																</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label class="control-label col-xs-12 col-sm-3 no-padding-right">Jenis Kelamin</label>
+																<div class="col-xs-12 col-sm-9">
+																	<div>
+																		<label class="line-height-1 blue">
+																			<input name="jenkel" value="L" type="radio" class="ace" checked>
+																			<span class="lbl"> Laki - laki</span>
+																		</label>
+																	</div>
+																	<div>
+																		<label class="line-height-1 blue">
+																			<input name="jenkel" value="P" type="radio" class="ace">
+																			<span class="lbl"> Perempuan</span>
+																		</label>
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="status">Status Siswa:</label>
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<select name="jenkel" id="status" class="col-xs-12 col-sm-6">
+																		<option value="">--Pilih Status Siswa--</option>
+																		<option value="Aktif">Aktif</option>
+																		<option value="Lulus">Lulus</option>
+																		<option value="Keluar">Keluar</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+															<div class="form-group">
+																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">Email Siswa:</label>
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
 																		<input type="email" name="email" id="email" class="col-xs-12 col-sm-6">
@@ -92,36 +157,25 @@
 
 															<div class="space-2"></div>
 
-															<div class="form-group">
-																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="password">Password:</label>
-
-																<div class="col-xs-12 col-sm-9">
-																	<div class="clearfix">
-																		<input type="password" name="password" id="password" class="col-xs-12 col-sm-4">
-																	</div>
-																</div>
-															</div>
-
-															<div class="space-2"></div>
-
-															<div class="form-group">
-																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="password2">Confirm Password:</label>
-
-																<div class="col-xs-12 col-sm-9">
-																	<div class="clearfix">
-																		<input type="password" name="password2" id="password2" class="col-xs-12 col-sm-4">
-																	</div>
-																</div>
-															</div>
-
 															<div class="hr hr-dotted"></div>
 
+															
 															<div class="form-group">
-																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">Company Name:</label>
-
+																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="prov_id">Provinsi:</label>
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="text" id="name" name="name" class="col-xs-12 col-sm-5">
+																		<select name="prov_id" id="prov_id" class="select2 chosen-select col-xs-12 col-sm-6">
+																		<option value="">--Pilih Provinsi--</option>
+																		<?php  
+																		$data=$this->db->get("data_provinsi");
+																		$data=$data->result();
+																		foreach ($data as $key) {
+																			?>
+																			<option value="<?php echo $key->id; ?>"><?php echo $key->name; ?></option>
+																			<?php
+																		}
+																		?>
+																		</select>
 																	</div>
 																</div>
 															</div>
@@ -129,15 +183,13 @@
 															<div class="space-2"></div>
 
 															<div class="form-group">
-																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="phone">Phone Number:</label>
-
+																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="kab_id">Kabupaten / Kota:</label>
 																<div class="col-xs-12 col-sm-9">
-																	<div class="input-group">
-																		<span class="input-group-addon">
-																			<i class="ace-icon fa fa-phone"></i>
-																		</span>
-
-																		<input type="tel" id="phone" name="phone">
+																	<div class="clearfix">
+																		<select name="kab_id" id="kab_id" class="select2 col-xs-12 col-sm-6">
+																		<option value="">--Pilih Kota--</option>
+																		
+																		</select>
 																	</div>
 																</div>
 															</div>
@@ -145,11 +197,26 @@
 															<div class="space-2"></div>
 
 															<div class="form-group">
-																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url">Company URL:</label>
-
+																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="kec_id">Kecamatan:</label>
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<input type="url" id="url" name="url" class="col-xs-12 col-sm-8">
+																		<select name="kec_id" id="kec_id" class="select2 col-xs-12 col-sm-6">
+																		<option value="">--Pilih Kecamatan--</option>
+																		
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="space-2"></div>
+
+															<div class="form-group">
+																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="desa_id">Desa / Kelurahan:</label>
+																<div class="col-xs-12 col-sm-9">
+																	<div class="clearfix">
+																		<select name="desa_id" id="desa_id" class="select2 col-xs-12 col-sm-6">
+																		<option value="">--Pilih Kelurahan--</option>
+																		
+																		</select>
 																	</div>
 																</div>
 															</div>
@@ -176,27 +243,7 @@
 																</div>
 															</div>
 
-															<div class="space-2"></div>
-
-															<div class="form-group">
-																<label class="control-label col-xs-12 col-sm-3 no-padding-right">Gender</label>
-
-																<div class="col-xs-12 col-sm-9">
-																	<div>
-																		<label class="line-height-1 blue">
-																			<input name="gender" value="1" type="radio" class="ace">
-																			<span class="lbl"> Male</span>
-																		</label>
-																	</div>
-
-																	<div>
-																		<label class="line-height-1 blue">
-																			<input name="gender" value="2" type="radio" class="ace">
-																			<span class="lbl"> Female</span>
-																		</label>
-																	</div>
-																</div>
-															</div>
+															
 
 															<div class="hr hr-dotted"></div>
 
@@ -316,7 +363,8 @@
 <div class="col-lg-3"></div>
 <script type="text/javascript">
 	$('.date-picker').datepicker({
-					autoclose: true,
-					todayHighlight: true
-				})
+		autoclose: true,
+		todayHighlight: true
+	});
+	$('.select2').select2();
 </script>
