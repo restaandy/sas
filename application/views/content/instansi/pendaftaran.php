@@ -164,7 +164,7 @@
 																<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="prov_id">Provinsi:</label>
 																<div class="col-xs-12 col-sm-9">
 																	<div class="clearfix">
-																		<select name="prov_id" id="prov_id" class="select2 chosen-select col-xs-12 col-sm-6">
+																		<select name="prov_id" id="prov_id" data-change="id_kota,id_kecamatan,id_kelurahan" onchange="get_loc(event,'id_kota','Pilih kabupaten/Kota')" class="select2 chosen-select col-xs-12 col-sm-6">
 																		<option value="">--Pilih Provinsi--</option>
 																		<?php  
 																		$data=$this->db->get("data_provinsi");
@@ -367,4 +367,21 @@
 		todayHighlight: true
 	});
 	$('.select2').select2();
+	function get_loc(e,s,b){
+		if(s!=''){
+			if($(e.target).attr('data-change')!=''){
+				var data=$(e.target).attr('data-change');
+				data=data.split(",");
+				for(var a=0;a<data.length;a++){
+					$('select[name="'+data[a]+'"]').html($('select[name="'+data[a]+'"] option')[0]);
+					$('select[name="'+data[a]+'"]').select2();
+				}
+
+			}
+			$('select[name="'+s+'"]').html("<option value=''>-- "+b+" --</option>");
+			$.post('<?php echo base_url(); ?>index.php/ajax/get_'+s,{id:$(e.target).val()},function(data){
+				$('select[name="'+s+'"]').html("<option value=''>-- "+b+" --</option>"+data);
+			});
+		}
+	}
 </script>
